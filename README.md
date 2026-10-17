@@ -40,13 +40,15 @@ src/
 
 ## 运行
 
+> 推荐：复制 `.env.example` 为 `.env` 填入凭据，程序启动时自动加载，无需 `export`。
+> 实际 shell 环境变量优先于 `.env`，且 `.env` 已被 gitignore。
+
 ### 方式一：MiMo 国内订阅（Token Plan）
 
 ```bash
 # Token Plan 控制台（https://platform.xiaomimimo.com/#/console/plan-manage）
 # 获取专属 Key（个人版 tp-xxxxx / 团队版 tttp-xxxxx）
-export MIMO_API_KEY=tp-...
-
+export MIMO_API_KEY=tp-...   # 或写入 .env
 cargo run -- "读一下 Cargo.toml，告诉我这个项目用了哪些依赖"
 ```
 

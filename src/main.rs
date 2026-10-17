@@ -136,6 +136,11 @@ async fn main() {
 }
 
 async fn run() -> Result<()> {
+    // 从 ./.env 加载环境变量（已存在的环境变量优先，不会被覆盖）
+    if let Ok(path) = dotenvy::dotenv() {
+        tracing::debug!("已加载环境文件: {}", path.display());
+    }
+
     let cli = Cli::parse();
     let settings = Settings::load(cli.model, cli.base_url, cli.max_turns, cli.auto_approve)?;
     let mut agent = build_agent(&settings);
